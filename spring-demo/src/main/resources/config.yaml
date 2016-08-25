@@ -1,0 +1,11 @@
+spring:
+  profiles: default
+common:
+  greeting: This is good, %s!
+
+---
+spring:
+  profiles: prod
+
+common:
+  greeting: God, we are in production, %s!
