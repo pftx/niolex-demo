@@ -1,0 +1,9 @@
+spring:
+  profiles: dev
+common:
+  greeting: We are in dev, %s!
+---
+spring:
+  profiles: prod
+common:
+  greeting: God, we are in production, %s!
