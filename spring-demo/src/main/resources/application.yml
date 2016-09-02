@@ -2,8 +2,10 @@ spring:
   profiles: dev
 common:
   greeting: We are in dev, %s!
+  version: 0.7.1-SNAPSHOT
 ---
 spring:
   profiles: prod
 common:
   greeting: God, we are in production, %s!
+  version: 2.2.1-SNAPSHOT

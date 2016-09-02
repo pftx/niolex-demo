@@ -27,12 +27,12 @@
 			<version>[2.0.0,3.0.0)</version>
 			<exclusions>
 				<exclusion>
-					<artifactId>reflectasm</artifactId>
 					<groupId>com.esotericsoftware.reflectasm</groupId>
+					<artifactId>reflectasm</artifactId>
 				</exclusion>
 				<exclusion>
-					<artifactId>jackson-mapper-asl</artifactId>
-					<groupId>org.codehaus.jackson</groupId>
+					<groupId>com.fasterxml.jackson.core</groupId>
+					<artifactId>jackson-databind</artifactId>
 				</exclusion>
 			</exclusions>
 		</dependency>
