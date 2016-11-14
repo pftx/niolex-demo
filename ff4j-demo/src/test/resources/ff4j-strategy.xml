@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<features>
+	<feature uid="notForEurop" enable="true">
+		<flipstrategy class="org.ff4j.hello.strategy.RegionFlippingStrategy">
+			<param name="grantedRegions">ASIA, AMER</param>
+		</flipstrategy>
+	</feature>
+</features>
