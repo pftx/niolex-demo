@@ -3,6 +3,8 @@ spring:
 common:
   greeting: We are in dev, %s!
   version: 0.7.1-SNAPSHOT
+server:
+  port: 6661
 ---
 spring:
   profiles: prod

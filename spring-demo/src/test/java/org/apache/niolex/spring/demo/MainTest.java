@@ -23,7 +23,7 @@ import org.junit.runner.RunWith;
 @RunWith(OrderedRunner.class)
 public class MainTest {
 
-    RESTClient client = new RESTClient("http://localhost:8080", "utf8", 1000, 1000);
+    RESTClient client = new RESTClient("http://localhost:6661", "utf8", 1000, 1000);
 
     @BeforeClass
     public static void setUp() {
