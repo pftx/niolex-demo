@@ -1,0 +1,25 @@
+# Common config, all service need it.
+management:
+  security.enabled: false
+  context-path: /monitor
+eureka:
+  client:
+    serviceUrl.defaultZone: http://localhost:6111/eureka/
+    healthcheck.enabled: true
+  instance:
+    statusPageUrlPath: ${management.context-path}/info
+    healthCheckUrlPath: ${management.context-path}/health
+security:
+    sessions: stateless
+
+# Logging config.
+
+# Service config.
+spring.application.name: auth-service
+server.port: 8001
+
+# JDBC config.
+spring.datasource.url: jdbc:mysql://localhost/auth?verifyServerCertificate=false&useSSL=false
+spring.datasource.username: dl_auth
+spring.datasource.password: I9dj@
+spring.datasource.driver-class-name: com.mysql.jdbc.Driver

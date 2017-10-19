@@ -10,11 +10,11 @@
 	</parent>
 
 	<groupId>org.apache.niolex.spring.cloud</groupId>
-	<artifactId>eureka-application</artifactId>
+	<artifactId>eureka-auth</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>eureka-application</name>
+	<name>eureka-auth</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
@@ -37,6 +37,10 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jdbc</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-security</artifactId>
 		</dependency>
@@ -44,7 +48,15 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-oauth2</artifactId>
 		</dependency>
-
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<scope>runtime</scope>
+		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>

@@ -10,11 +10,11 @@
 	</parent>
 
 	<groupId>org.apache.niolex.spring.cloud</groupId>
-	<artifactId>eureka-application</artifactId>
+	<artifactId>spring-security</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>eureka-application</name>
+	<name>spring-security</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
@@ -41,8 +41,13 @@
 			<artifactId>spring-cloud-starter-security</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-oauth2</artifactId>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.github.pftx</groupId>
+			<artifactId>commons-core</artifactId>
+			<version>3.0.2</version>
 		</dependency>
 
 		<dependency>

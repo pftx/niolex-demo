@@ -17,6 +17,8 @@
  */
 package org.apache.niolex.spring.cloud.eureka_application;
 
+import java.security.Principal;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,10 +43,11 @@ public class ComputeController {
     private DiscoveryClient client;
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
-    public Integer add(@RequestParam Integer a, @RequestParam Integer b) {
+    public Integer add(@RequestParam Integer a, @RequestParam Integer b, Principal user) {
         ServiceInstance instance = client.getLocalServiceInstance();
         Integer r = a + b;
-        logger.info("/add, host:" + instance.getHost() + ", service_id:" + instance.getServiceId() + ", result:" + r);
+        logger.info("/add, host:" + instance.getHost() + ", service_id:" + instance.getServiceId() + ", user:"
+                + user.getName() + ", result:" + r);
         return r;
     }
 

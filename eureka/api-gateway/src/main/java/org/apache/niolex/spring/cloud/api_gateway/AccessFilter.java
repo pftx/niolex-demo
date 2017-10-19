@@ -17,10 +17,13 @@
  */
 package org.apache.niolex.spring.cloud.api_gateway;
 
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.netflix.zuul.ZuulFilter;
@@ -35,6 +38,9 @@ import com.netflix.zuul.context.RequestContext;
 public class AccessFilter extends ZuulFilter {
 
     private static final Logger log = LoggerFactory.getLogger(AccessFilter.class);
+
+    @Autowired
+    private AuthClient authClient;
 
     /**
      * This is the override of super method.
@@ -64,6 +70,9 @@ public class AccessFilter extends ZuulFilter {
             return null;
         }
         log.info("access token ok");
+
+        Map<String, Object> map = authClient.checkToken("d9a66c78-37c8-4a97-9ee0-a43a3d4011a3");
+        log.info("auth token => " + map);
         return null;
     }
 

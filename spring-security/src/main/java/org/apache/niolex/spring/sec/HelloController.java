@@ -1,7 +1,7 @@
 /**
- * ConsumerController.java
+ * HelloController.java
  *
- * Copyright 2016 the original author or authors.
+ * Copyright 2017 the original author or authors.
  *
  * We licenses this file to you under the Apache License, version 2.0
  * (the "License"); you may not use this file except in compliance with the
@@ -15,29 +15,37 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-package org.apache.niolex.spring.cloud.eureka_feign;
+package org.apache.niolex.spring.sec;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestHeader;
+import java.security.Principal;
+
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * @author <a href="mailto:xiejiyun@foxmail.com">Xie, Jiyun</a>
- * @version 3.0.1
- * @since Dec 8, 2016
+ * @author <a href="mailto:pftx@live.com">Lex Xie</a>
+ * @version 1.0.0
+ * @since Oct 18, 2017
  */
 @RestController
-public class ConsumerController {
+public class HelloController {
 
-    @Autowired
-    ComputeClient computeClient;
+    @RequestMapping("/user")
+    public Principal user(Principal user) {
+        return user;
+    }
 
-    @RequestMapping(value = "/add", method = RequestMethod.GET)
-    public Integer add(@RequestHeader("Authorization") String token) {
-        FeignRelayAuthRequestInterceptor.putToken(token);
-        return computeClient.add(10, 20);
+    @RequestMapping(value = "/hi", method = RequestMethod.GET)
+    public String hi() {
+        return "Hello";
+    }
+
+    @RequestMapping(value = "/admin", method = RequestMethod.GET)
+    @PreAuthorize("hasAuthority('ADMIN')")
+    public String admin() {
+        return "Hello admin!";
     }
 
 }

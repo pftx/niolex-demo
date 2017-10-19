@@ -1,0 +1,34 @@
+# Common config, all service need it.
+management:
+  context-path: /monitor
+eureka:
+  client:
+    serviceUrl.defaultZone: http://localhost:6111/eureka/
+    healthcheck.enabled: true
+  instance:
+    statusPageUrlPath: ${management.context-path}/info
+    healthCheckUrlPath: ${management.context-path}/health
+security:
+    sessions: stateless
+
+# Logging config.
+
+# Service config.
+spring.application.name: api-gateway
+server.port: 5555
+
+# Zuul config.
+zuul.routes:
+  api-a:
+    path: /compute/**
+    sensitiveHeaders:
+    serviceId: compute-service
+  api-b:
+    path: /client/**
+    sensitiveHeaders:
+    serviceId: feign-consumer
+  auth:
+    path: /oauth/**
+    stripPrefix: false
+    sensitiveHeaders:
+    serviceId: auth-service

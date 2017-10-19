@@ -7,7 +7,7 @@ import junit.framework.TestSuite;
 /**
  * Unit test for simple App.
  */
-public class AppEurekaTest 
+public class EurekaServerTest 
     extends TestCase
 {
     /**
@@ -15,7 +15,7 @@ public class AppEurekaTest
      *
      * @param testName name of the test case
      */
-    public AppEurekaTest( String testName )
+    public EurekaServerTest( String testName )
     {
         super( testName );
     }
@@ -25,7 +25,7 @@ public class AppEurekaTest
      */
     public static Test suite()
     {
-        return new TestSuite( AppEurekaTest.class );
+        return new TestSuite( EurekaServerTest.class );
     }
 
     /**

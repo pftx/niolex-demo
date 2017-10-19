@@ -1,0 +1,24 @@
+# Common config, all service need it.
+eureka.client.serviceUrl.defaultZone: http://localhost:6111/eureka/
+management.security.enabled: false
+management.context-path: /monitor
+security:
+    sessions: stateless
+
+# Logging config.
+logging.level.org.springframework: debug
+
+# Service config.
+spring.application.name: compute-service
+server.port: 6223
+
+# Oauth2 config.
+auth-service: http://localhost:8001
+security.oauth2:
+  client:
+    client-id: client
+    client-secret: nice-to-have
+  resource:
+    token-info-uri: ${auth-service}/oauth/check_token
+    user-info-uri: ${auth-service}/oauth/ext/user_info
+    prefer-token-info: true
