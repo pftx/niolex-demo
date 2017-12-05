@@ -8,10 +8,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  *
  */
 @SpringBootApplication
-public class Hateoas {
+public class HateoasServer {
 
     public static void main(String[] args) {
-        SpringApplication.run(Hateoas.class, args);
+        SpringApplication.run(HateoasServer.class, args);
         System.out.println("Hello World!");
     }
 
