@@ -13,6 +13,7 @@ security:
     sessions: stateless
 
 # Logging config.
+logging.level.org.springframework: debug
 
 # Service config.
 spring.application.name: auth-service

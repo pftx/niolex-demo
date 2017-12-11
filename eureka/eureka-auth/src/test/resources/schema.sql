@@ -2,6 +2,7 @@
 create database auth;
 CREATE USER 'dl_auth'@'%' IDENTIFIED BY 'I9dj@';
 GRANT SELECT,INSERT,UPDATE,DELETE ON auth.* TO 'dl_auth'@'%';
+use auth;
 
 --create authentication table
 create table users (

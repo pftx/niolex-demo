@@ -1,6 +1,6 @@
-INSERT INTO `users` (`user_id`, `username`, `password`, `enabled`, `created`, `modified`)
+INSERT INTO `users` (`user_id`, `username`, `email`,`password`, `enabled`, `created`, `modified`)
 VALUES
-    (1,'root','$2a$12$3uGBNkzQ0HWKE/BeiSk6seTUZ37iE5OePNzlZOB4RiwEk3vpwfQXG',1,'2017-10-16 13:14:45','2017-10-16 14:31:44');
+    (1,'root','root@admin.grp','$2a$12$3uGBNkzQ0HWKE/BeiSk6seTUZ37iE5OePNzlZOB4RiwEk3vpwfQXG',1,'2017-10-16 13:14:45','2017-10-16 14:31:44');
     
 INSERT INTO `authorities` (`username`, `authority`)
 VALUES
