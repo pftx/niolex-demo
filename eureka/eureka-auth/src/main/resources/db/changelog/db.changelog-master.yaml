@@ -1,0 +1,74 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: marceloverdijk
+      changes:
+        - createTable:
+            tableName: person
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: first_name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: last_name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+  - changeSet:
+      id: 2
+      author: marceloverdijk
+      changes:
+        - insert:
+            tableName: person
+            columns:
+              - column:
+                  name: first_name
+                  value: Marcel
+              - column:
+                  name: last_name
+                  value: Overdijk
+  - changeSet:
+      id: 3
+      author: liquibase-docs
+      changes:
+      - sql:
+          comment: What about Bob?
+          dbms: mysql
+          endDelimiter: \nGO
+          splitStatements: true
+          sql: insert into person (first_name, last_name) values ('Bob', 'Rax')
+          stripComments: true
+  - changeSet:
+      id: 5
+      author: liquibase-docs
+      preConditions:
+        onFail: MARK_RAN
+        not:
+          tableExists:
+            schemaName: auth
+            tableName: ad_type
+      changes:
+      - sql:
+          comment: What about Bob?
+          dbms: mysql
+          endDelimiter: \nGO
+          splitStatements: true
+          sql: |
+            CREATE TABLE ad_type (
+              ad_type_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+              ad_type_name VARCHAR(20) NOT NULL UNIQUE KEY,
+              display_name VARCHAR(40),
+              status TINYINT NOT NULL DEFAULT 1,
+              created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Timestamp of initial creation.',
+              modified TIMESTAMP NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
+            )
+          stripComments: true

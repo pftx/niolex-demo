@@ -59,7 +59,7 @@ public class SecConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .addFilterBefore(new XTokenAuthenticationFilter(), BasicAuthenticationFilter.class)
                 .authenticationProvider(authenticationProvider()).sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().csrf().disable();
     }
 
 }

@@ -16,7 +16,7 @@ public class XTokenUtilTest {
         p.setOpAccountId(123L);
         p.setOpUserId(123456L);
         p.setUserId(1L);
-        p.setUserName("root");
+        p.setUserName("user");
         p.setPermissionList(Lists.newArrayList("ADMIN", "READ"));
         SecuredXToken x = new SecuredXToken(p, "9d0500");
         String s = XTokenUtil.encodeToken(x, "Lippolis");

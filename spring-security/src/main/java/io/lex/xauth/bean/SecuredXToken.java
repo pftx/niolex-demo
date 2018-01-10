@@ -68,4 +68,18 @@ public class SecuredXToken extends AbstractAuthenticationToken {
         return principal;
     }
 
+    public boolean isRoot() {
+        if (!principal.getName().equals("root")) {
+            throw new IllegalArgumentException("This is not root!");
+        }
+        return true;
+    }
+
+    public boolean isRoot(String p) {
+        if (!principal.getName().equals(p)) {
+            throw new IllegalArgumentException("This is not the user!");
+        }
+        return true;
+    }
+
 }

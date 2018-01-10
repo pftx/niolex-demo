@@ -22,6 +22,7 @@ import java.security.Principal;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -46,6 +47,18 @@ public class HelloController {
     @PreAuthorize("hasAuthority('ADMIN')")
     public String admin() {
         return "Hello admin!";
+    }
+
+    @RequestMapping(value = "/root", method = RequestMethod.GET)
+    @PreAuthorize("authentication.isRoot()")
+    public String root() {
+        return "Hello root!";
+    }
+
+    @RequestMapping(value = "/param", method = RequestMethod.GET)
+    @PreAuthorize("authentication.isRoot(#p)")
+    public String param(@RequestParam("p") String p) {
+        return "Hello " + p;
     }
 
 }
